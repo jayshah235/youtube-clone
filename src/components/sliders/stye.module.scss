@@ -1,0 +1,21 @@
+@import "../../styles/variables";
+
+.slidersContainer {
+  max-width: 100%;
+  overflow: hidden;
+  position: sticky;
+  top: 64px;
+  background: var(--bg-color);
+  z-index: 99;
+  padding-block: 20px
+}
+
+.categoryLists {
+  @include flexCenter(flex-start, center);
+  gap: 20px;
+  text-transform: capitalize;
+
+  li {
+   @include contentListWithHover();
+  }
+}

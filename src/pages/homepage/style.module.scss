@@ -1,0 +1,32 @@
+@import "../../styles//variables";
+
+.homepageContainer {
+  @include flexCenter(flex-start, flex-start);
+  gap: 20px;
+  .sideBarContainer {
+    flex-basis: 5%;
+    @include flexCenter();
+    flex-direction: column;
+    gap: 10px;
+    position: sticky;
+    top: 66px;
+  }
+
+  .mainContentContainer {
+    flex-basis: 95%;
+    margin-right: 20px;
+
+    .videoGrid {
+      width: 100%;
+      display: flex;
+      justify-content: flex-start;
+      gap: 15px;
+      flex-wrap: wrap;
+      margin-top: 15px;
+    }
+
+    .videoWrapper {
+      flex-basis: 32%;
+    }
+  }
+}

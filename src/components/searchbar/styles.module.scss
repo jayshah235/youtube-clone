@@ -1,0 +1,38 @@
+@import "../../styles//variables";
+
+.searchWrapper {
+  @include flexCenter();
+  gap: 20px;
+}
+
+.searchBar {
+  display: flex;
+  border: 1px solid var(--border-color);
+  border-radius: 20px;
+  flex-basis: 90%;
+
+  .inputWrapper {
+    flex-basis: 90%;
+    padding: 8px 10px;
+  }
+
+  .searchIcon {
+    flex-basis: 10%;
+    padding-block: 8px;
+    @include flexCenter();
+    background: var(--secondary-bg-color);
+    border-left: 1px solid var(--border-color);
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
+  }
+
+  input {
+    width: 100%;
+    border: none;
+    background: transparent;
+    outline: none;
+    font-size: 17px;
+    padding-left: 10px;
+    color: var(--primary-font-color);
+  }
+}

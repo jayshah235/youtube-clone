@@ -1,0 +1,36 @@
+@import "../../styles/variables.scss";
+
+.errorWrapper {
+  width: 100%;
+  height: 100vh;
+  background: var(--error-page-bg);
+
+  .errorPageContainer {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .errorContent {
+    width: 70%;
+    margin: auto;
+    text-align: center;
+
+    img {
+      width: 50%;
+    }
+
+    figcaption {
+      @include font(var(--primary-font-color), 17px, 300);
+      white-space: normal;
+      text-shadow: 0 0 0 transparent, 0 1px 1px var(--bg-color);
+      margin-top: 15px;
+    }
+  }
+}
+
+.btnContainer {
+  width: 40%;
+  margin: 20px auto;
+}

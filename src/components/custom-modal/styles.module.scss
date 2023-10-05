@@ -1,0 +1,35 @@
+@import '../../styles/variables';
+
+.modalOverlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  overflow: hidden;
+}
+
+.modalContainer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  top: 0;
+  background: var(--bg-color);
+  z-index: 1000;
+  width: 19%;
+}
+
+.logoSection {
+    @include flexCenter(flex-start, center);
+    gap: 20px;
+    .logo {
+      width: 100px;
+      height: 56px;
+    }
+
+    .logoHeight {
+      height: 29px;
+    }
+  }

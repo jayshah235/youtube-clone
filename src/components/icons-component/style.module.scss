@@ -1,0 +1,24 @@
+@import "../../styles/variables";
+
+.onHoverIcon {
+  @include flexCenter();
+  @include bgTransitionWithHover();
+  border-radius: 50%;
+  padding: 12px;
+}
+.activeIcon {
+  background: var(--icons-bg);
+}
+
+.iconWrapper {
+  @include flexCenter();
+  flex-direction: column;
+  gap: 5px;
+  p {
+    margin: 0;
+    max-width: 100%;
+    display: block;
+    line-height: 22px;
+    @include font(var(--primary-font-color), 12px, 400);
+  }
+}

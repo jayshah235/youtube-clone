@@ -1,0 +1,38 @@
+@import "../../styles/variables";
+
+.headerWrapper {
+  @include flexCenter(space-between, center);
+  padding: 5px 15px;
+  position: sticky;
+  top: 0;
+  background: var(--bg-color);
+  z-index: 10;
+  .logoSection {
+    flex-basis: 20%;
+    @include flexCenter(flex-start, center);
+    gap: 20px;
+    .logo {
+      width: 100px;
+      height: 56px;
+    }
+
+    .logoHeight {
+      height: 29px;
+    }
+  }
+  .searchSection {
+    flex-basis: 50%;
+  }
+  .manageAcountSection {
+    flex-basis: 20%;
+    @include flexCenter(flex-end, center);
+  }
+}
+
+.sidebarConatiner{
+  padding: 15px;
+  p{
+   @include contentListWithHover();
+   margin-block: 5px;
+  }
+}

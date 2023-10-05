@@ -1,0 +1,28 @@
+@mixin font($color: #333, $size: 16px, $weight: 400) {
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+}
+
+@mixin flexCenter($content-position: center, $align-content: center ) {
+  display: flex;
+  justify-content: $content-position;
+  align-items: $align-content;
+}
+@mixin bgTransitionWithHover(){
+  transition: 0.5s;
+  cursor: pointer;
+  &:hover {
+    background: var(--icons-bg-on-hover);
+  }
+}
+
+@mixin contentListWithHover(){
+  height: 32px;
+  padding: 0 12px;
+  background: var(--icons-bg);
+  border-radius: 5px;
+  @include flexCenter();
+  @include bgTransitionWithHover();
+  @include font(var(--primary-font-color), 13px, 400);
+}
