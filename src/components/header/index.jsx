@@ -31,7 +31,7 @@ const Header = ({ themeMode }) => {
             <RxTextAlignJustify size="30px" className="icons" />
           </IconsConatiner>
           <Link
-            to="/"
+            to="/youtube-clone"
             className={[!getTheme && styles.logoHeight, styles.logo]?.join(" ")}
           >
             <img src={getTheme ? logo : darkModeLogo} alt="logo" />

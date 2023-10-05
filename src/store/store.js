@@ -4,7 +4,7 @@ export const CreateStore = createContext();
 
 export const StoreProvider = ({ children }) => {
   const storage = localStorage.getItem("theme");
-  const [theme, setTheme] = useState(storage);
+  const [theme, setTheme] = useState(storage ?? 'light-theme');
   return (
     <CreateStore.Provider value={{ theme, setTheme }}>
       {children}

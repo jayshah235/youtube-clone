@@ -14,7 +14,7 @@ const ErrorPage = () => {
           </figcaption>
         </figure>
         <div className={styles.btnContainer}>
-          <NavLink to="/" className="btn">
+          <NavLink to="/youtube-clone" className="btn">
             Go back to homepage
           </NavLink>
         </div>
