@@ -5,7 +5,7 @@ import { HomePage } from "../pages/homepage";
 
 export const routeObject = createBrowserRouter([
   {
-    path: "youtube-clone",
+    path: "",
     element: <MainLayout />,
     errorElement: <ErrorPage />,
     children: [
