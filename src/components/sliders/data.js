@@ -24,6 +24,9 @@ export const slidersData = [
     label: "live",
   },
   {
-    label: "algorithms",
+    label: "React",
+  },
+  {
+    label: "Vue",
   },
 ];

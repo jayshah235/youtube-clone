@@ -19,6 +19,7 @@
 
 .videoImage {
   transition: 0.5s;
+  width: 100%;
   img {
     border-radius: 12px;
   }
@@ -45,7 +46,6 @@
     letter-spacing: 0;
     text-transform: capitalize;
     line-height: 24px;
-    height: 46px;
   }
   p {
     @include font(var(--secondary-font-color), 14px, 400);

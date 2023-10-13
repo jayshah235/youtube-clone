@@ -9,6 +9,7 @@ body {
   padding: 0;
   background: var(--bg-color);
   overflow-x: hidden;
+  font-family: Roboto, Arial, sans-serif;
 }
 
 code {
@@ -25,6 +26,8 @@ code {
   --border-color: #d3d3d3;
   --icons-bg: rgba(0, 0, 0, 0.05);
   --icons-bg-on-hover: rgba(0, 0, 0, 0.1);
+  --skeleton-bg-color: rgba(256, 256, 256, 0.3);
+  --dropDown-bg-color: #fff;
 }
 
 .dark-theme {
@@ -36,6 +39,8 @@ code {
   --border-color: hsla(0, 0%, 53.3%, 0.4);
   --icons-bg: rgba(255, 255, 255, 0.1);
   --icons-bg-on-hover: rgba(255, 255, 255, 0.2);
+  --skeleton-bg-color: rgba(256, 256, 256, 0.3);
+  --dropDown-bg-color: #282828;
 }
 
 .icons {
@@ -47,7 +52,7 @@ code {
   text-decoration: none;
   padding: 10px 20px;
   border: 1px solid var(--primary-font-color);
-  border-radius: 20px;
+  border-radius: 12px;
   background: var(--primary-font-color);
   color: var(--bg-color);
   font-weight: 500;
@@ -64,17 +69,18 @@ ul {
   margin: 0;
 }
 
-p, figure, h3{
+p,
+figure,
+h3,
+h6 {
   margin: 0;
 }
 
-body::-webkit-scrollbar{
+body::-webkit-scrollbar {
   display: none;
 }
 
-a{
+a {
   color: var(--primary-font-color);
   text-decoration: none;
 }
-
-

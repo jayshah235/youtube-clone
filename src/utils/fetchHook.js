@@ -31,3 +31,4 @@ export const CustomFetchHook = (url) => {
 
   return { data, error, loading };
 };
+

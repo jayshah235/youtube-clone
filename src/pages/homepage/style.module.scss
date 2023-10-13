@@ -28,5 +28,15 @@
     .videoWrapper {
       flex-basis: 32%;
     }
+    @media (max-width: 1024px) {
+      // .videoGrid{
+      //   justify-content: space-between;
+      // }
+      .videoWrapper {
+        flex-basis: 47%;
+      }
+    }
   }
 }
+
+

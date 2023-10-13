@@ -29,10 +29,65 @@
   }
 }
 
-.sidebarConatiner{
+.sidebarConatiner {
   padding: 15px;
-  p{
-   @include contentListWithHover();
-   margin-block: 5px;
+  p {
+    @include contentListWithHover();
+    margin-block: 5px;
   }
+}
+
+.userInfoContainer {
+  position: relative;
+
+  .manageSettingsBox {
+    position: absolute;
+    z-index: 999;
+    background: var(--dropDown-bg-color);
+    box-shadow: 0px 4px 32px 0px rgba(0, 0, 0, 0.1);
+    color: var(--primary-font-color);
+    min-width: max-content;
+    right: 21%;
+    min-height: 100%;
+    border-radius: 10px;
+  }
+
+  .userInfo {
+    display: flex;
+    gap: 15px;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+
+    .userDetails {
+      display: flex;
+      flex-direction: column;
+      h6 {
+        font-size: 16px;
+        line-height: 1.2;
+        font-weight: 400;
+      }
+      p {
+        margin-top: 5px;
+        font-size: 14px;
+        color: #3ea6ff;
+      }
+    }
+  }
+}
+
+.profilePic {
+  width: 30px;
+  height: 30px;
+
+  img {
+    border-radius: 30px;
+  }
+}
+
+.setModes{
+  display: flex;
+  align-items: center;
+  padding: 15px;
+  gap: 20px;
+  border-bottom: 1px solid var(--border-color);
 }
