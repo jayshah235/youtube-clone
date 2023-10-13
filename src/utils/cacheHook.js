@@ -1,13 +1,5 @@
 import { useQuery } from "@tanstack/react-query";
-import { myConfig } from "../config";
-
-const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": myConfig.API_PUBLIC_KEY,
-    "X-RapidAPI-Host": myConfig.API_HOST,
-  },
-};
+import { options } from "./fetchHook";
 
 const fetchHook = async (url) => {
   const response = await fetch(url, options);
@@ -17,8 +9,8 @@ const fetchHook = async (url) => {
 
 export const useCache = (key, apiUrl) => {
   const query = useQuery([key], () => fetchHook(apiUrl), {
-    cacheTime: 120000,
-    staleTime: 120000,
+    cacheTime: 5000,
+    staleTime: 5000,
   });
 
   return  query;

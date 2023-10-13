@@ -20,12 +20,12 @@ export const CustomVideo = (props) => {
         <img src={creatorImage} alt="" />
         <div className={styles.videoDesc}>
           <h3>
-            {title?.length > 60 ? `${title?.substring(0, 60)}...` : title}
+            {title?.length > 58 ? `${title?.substring(0, 58)}...` : title}
           </h3>
           <p>{authorTitle}</p>
           {timePosted?.length && (
             <div className={styles.videoResultSection}>
-              <p>{totalViews?.toLocaleString()}</p>
+              <p>{Number(totalViews)?.toLocaleString()} Views</p>
               <p>{timePosted}</p>
             </div>
           )}

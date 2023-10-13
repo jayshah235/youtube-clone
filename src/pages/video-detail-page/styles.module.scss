@@ -1,0 +1,59 @@
+.detailPageWrapper {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+  width: 90%;
+  margin: 20px auto;
+
+  .playVideoWrapper {
+    flex-basis: 60%;
+
+    iframe {
+      border-radius: 10px;
+    }
+
+    h2 {
+      font-size: 18px;
+      font-weight: 600;
+      color: var(--primary-font-color);
+    }
+
+    .creatorInfo {
+      display: flex;
+      gap: 20px;
+
+      figure {
+        width: 40px;
+        height: 40px;
+
+        img {
+          border-radius: 30px;
+        }
+      }
+    }
+
+    .subsInfo {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+
+      h6 {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--primary-font-color);
+        text-transform: capitalize;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 500;
+        color: var(--secondary-font-color);
+      }
+    }
+  }
+
+  .playlistWrapper {
+    flex-basis: 40%;
+    border: 1px solid black;
+  }
+}

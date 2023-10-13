@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { myConfig } from "../config";
 
-const options = {
+export const options = {
   method: "GET",
   headers: {
     "X-RapidAPI-Key": myConfig.API_PUBLIC_KEY,
