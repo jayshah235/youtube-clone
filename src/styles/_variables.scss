@@ -4,12 +4,13 @@
   font-weight: $weight;
 }
 
-@mixin flexCenter($content-position: center, $align-content: center ) {
+@mixin flexCenter($content-position: center, $align-content: center) {
   display: flex;
   justify-content: $content-position;
   align-items: $align-content;
 }
-@mixin bgTransitionWithHover(){
+
+@mixin bgTransitionWithHover() {
   transition: 0.5s;
   cursor: pointer;
   &:hover {
@@ -17,7 +18,7 @@
   }
 }
 
-@mixin contentListWithHover(){
+@mixin contentListWithHover() {
   height: 32px;
   padding: 0 12px;
   background: var(--icons-bg);
@@ -25,4 +26,20 @@
   @include flexCenter();
   @include bgTransitionWithHover();
   @include font(var(--primary-font-color), 13px, 400);
+}
+
+@mixin skeleton($width, $height) {
+  animation: skeleton-loading 1s linear infinite alternate;
+  width: $width;
+  height: $height;
+  border-radius: 10px;
+  @keyframes skeleton-loading {
+    0% {
+      background-color: var(--darkMode-skeleton-loader);
+    }
+
+    100% {
+      background-color: var(--darkMode-Secondary-skeleton-loader);
+    }
+  }
 }

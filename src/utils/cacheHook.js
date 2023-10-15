@@ -1,8 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
-import { options } from "./fetchHook";
 
 const fetchHook = async (url) => {
-  const response = await fetch(url, options);
+  const response = await fetch(url);
   const data = response?.json();
   return data;
 };

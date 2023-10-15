@@ -1,0 +1,10 @@
+@import "../../styles/variables";
+
+.sliders {
+  display: flex;
+  gap: 20px;
+}
+
+.slidersList {
+  @include skeleton(70px, 30px);
+}

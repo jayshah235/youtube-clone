@@ -28,6 +28,8 @@ code {
   --icons-bg-on-hover: rgba(0, 0, 0, 0.1);
   --skeleton-bg-color: rgba(256, 256, 256, 0.3);
   --dropDown-bg-color: #fff;
+  --darkMode-skeleton-loader: hsl(200, 20%, 80%);
+  --darkMode-Secondary-skeleton-loader: hsl(200, 20%, 95%);
 }
 
 .dark-theme {
@@ -41,6 +43,8 @@ code {
   --icons-bg-on-hover: rgba(255, 255, 255, 0.2);
   --skeleton-bg-color: rgba(256, 256, 256, 0.3);
   --dropDown-bg-color: #282828;
+  --darkMode-skeleton-loader: hsl(0, 0%, 14%);
+  --darkMode-Secondary-skeleton-loader: hsl(0, 0%, 29%);
 }
 
 .icons {

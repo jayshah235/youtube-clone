@@ -1,13 +1,12 @@
 import { useEffect, useState } from "react";
-import { myConfig } from "../config";
 
-export const options = {
-  method: "GET",
-  headers: {
-    "X-RapidAPI-Key": myConfig.API_PUBLIC_KEY,
-    "X-RapidAPI-Host": myConfig.API_HOST,
-  },
-};
+// export const options = {
+//   method: "GET",
+//   headers: {
+//     "X-RapidAPI-Key": myConfig.API_PUBLIC_KEY,
+//     "X-RapidAPI-Host": myConfig.API_HOST,
+//   },
+// };
 
 export const CustomFetchHook = (url) => {
   const [data, setData] = useState([]);
@@ -18,7 +17,7 @@ export const CustomFetchHook = (url) => {
     (async () => {
       setLoading(true);
       try {
-        const getResponse = await fetch(url, options);
+        const getResponse = await fetch(url);
         const response = await getResponse.json();
         setData(response);
         setLoading(false);

@@ -1,0 +1,41 @@
+@import "../../styles/variables";
+
+.headerSkeleton {
+  @include flexCenter(space-between, center);
+  background: var(--bg-color);
+  padding: 5px 20px;
+}
+
+.logoSection {
+  flex-basis: 10%;
+  @include flexCenter(space-between, center);
+}
+
+.skeleton {
+  @include skeleton(30px, 30px);
+  margin: 12px;
+}
+
+.logoSkeleton {
+  @include skeleton(100px, 30px);
+}
+
+.searchSection {
+  flex-basis: 70%;
+  @include flexCenter(center, center);
+  gap: 20px;
+}
+
+.searchBar {
+  @include skeleton(630px, 38px);
+}
+
+.voiceIcon {
+  @include skeleton(40px, 38px);
+}
+
+.iconssSection {
+  flex-basis: 20%;
+  @include flexCenter(flex-end, center);
+  gap: 20px;
+}

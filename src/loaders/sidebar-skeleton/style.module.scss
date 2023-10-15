@@ -1,0 +1,12 @@
+@import "../../styles/variables";
+
+.sidebarLoader {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.iconsLoader {
+  @include skeleton(56px, 76px);
+}

@@ -1,11 +1,9 @@
 import { CustomVideo } from "../../components/custom-video";
-import { myConfig } from "../../config";
 import styles from "./style.module.scss";
 import { useCache } from "../../utils/cacheHook";
 
 const HomePageVideos = () => {
-  const { data, isLoading } = useCache("homepage", myConfig.HOME_API_ENDPOINT);
-  const filterData = data?.data?.filter((s) => s.type === "video");
+  const { data, isLoading } = useCache("homepage", `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
 
   if (isLoading) {
     return <p>loading.....</p>;
@@ -13,16 +11,16 @@ const HomePageVideos = () => {
 
   return (
     <div className={styles.videoGrid}>
-      {filterData?.map((items, index) => (
+      {data?.items?.map((items, index) => (
         <section key={index} className={styles.videoWrapper}>
           <CustomVideo
-            videoImage={items?.thumbnail?.[0]?.url}
-            creatorImage={items?.channelThumbnail?.[0]?.url}
-            title={items?.title}
-            timePosted={items?.publishedTimeText}
-            totalViews={items?.viewCount}
-            link={`watch/${items?.videoId}`}
-            authorTitle={items?.channelTitle}
+            videoImage={items?.snippet?.thumbnails?.maxres?.url}
+            creatorImage={items?.snippet?.thumbnails?.default?.url}
+            title={items?.snippet?.title}
+            timePosted={items?.snippet?.publishedAt}
+            totalViews={items?.statistics?.viewCount}
+            link={`watch/${items?.id}`}
+            authorTitle={items?.snippet?.channelTitle}
           />
         </section>
       ))}

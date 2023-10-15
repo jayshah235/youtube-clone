@@ -90,8 +90,11 @@ const Header = ({ themeMode }) => {
                       ) : (
                         <MdOutlineLightMode size="25px" className="icons" />
                       )}
-                      <div className={styles.userDetails} onClick={() => themeMode()}>
-                        <p>{getTheme ? 'Dark Mode' : 'Light Mode'}</p>
+                      <div
+                        className={styles.userDetails}
+                        onClick={() => themeMode()}
+                      >
+                        <p>{getTheme ? "Dark Mode" : "Light Mode"}</p>
                       </div>
                     </div>
                     <button onClick={() => logout()}>Logout</button>

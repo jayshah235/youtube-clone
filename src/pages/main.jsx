@@ -1,6 +1,7 @@
 import React, { Suspense, lazy, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { useGlobalContext } from "../store/store";
+import { HeaderLoader } from "../loaders/header-skeleton/header-loader";
 
 const LazyHeader = lazy(() => import("../components/header"));
 
@@ -18,7 +19,7 @@ export const MainLayout = () => {
 
   return (
     <main>
-      <Suspense fallback={<>header...</>}>
+      <Suspense fallback={<HeaderLoader />}>
         <LazyHeader themeMode={() => toggleMode()} />
       </Suspense>
       <Outlet />

@@ -4,10 +4,13 @@ import styles from "./styles.module.scss";
 
 const VideoDetailPage = () => {
   const { ids } = useParams();
+  console.log(ids, "ids");
   const { data, loading } = CustomFetchHook(
-    `https://yt-api.p.rapidapi.com/dl?id=${ids}`
+    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
   );
-  
+
+  const selectedVideoData = data?.items?.[0];
+
   if (data?.length || loading) {
     return <p>loading..</p>;
   }
@@ -15,21 +18,24 @@ const VideoDetailPage = () => {
     <article className={styles.detailPageWrapper}>
       <section className={styles.playVideoWrapper}>
         <iframe
-          width="693px"
-          height="390px"
-          src={`https://www.youtube.com/embed/${data?.id}?enablejsapi=1&autoplay=1`}
+          width="100%"
+          height="450px"
+          src={`https://www.youtube.com/embed/${selectedVideoData?.id}?enablejsapi=1&autoplay=1`}
           title="YouTube video player"
           allow="accelerometer; autoplay;
   clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowFullScreen
         />
-        <h2>{data?.title}</h2>
+        <h2>{selectedVideoData?.snippet?.title}</h2>
         <div className={styles.creatorInfo}>
           <figure>
-            <img src={data?.thumbnail?.[0]?.url} alt="" />
+            <img
+              src={selectedVideoData?.snippet?.thumbnails?.default?.url}
+              alt="thimbnail"
+            />
           </figure>
           <div className={styles.subsInfo}>
-            <h6>{data?.channelTitle}</h6>
+            <h6>{selectedVideoData?.snippet?.channelTitle}</h6>
             <p>197 subscribers</p>
           </div>
         </div>
