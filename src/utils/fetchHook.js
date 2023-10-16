@@ -18,8 +18,9 @@ export const CustomFetchHook = (url) => {
       setLoading(true);
       try {
         const getResponse = await fetch(url);
-        const response = await getResponse.json();
-        setData(response);
+        const response = await getResponse?.json();
+        console.log(response, 'response')
+        setData((prev) => [...prev, ...response.items]);
         setLoading(false);
       } catch (err) {
         setLoading(false);

@@ -1,30 +1,40 @@
-import { CustomVideo } from "../../components/custom-video";
-import styles from "./style.module.scss";
-import { useCache } from "../../utils/cacheHook";
+import { myConfig } from "../../config";
+import VideosGrid from "../../components/videos-grid";
+import { VideosLoader } from "../../loaders/videos-skeleton";
+import { CustomFetchHook } from "../../utils/fetchHook";
 
 const HomePageVideos = () => {
-  const { data, isLoading } = useCache("homepage", `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
+  const { data, loading } = CustomFetchHook(
+    `${myConfig.API_ENDPOINT}/videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50&regionCode=IN&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`);
 
-  if (isLoading) {
-    return <p>loading.....</p>;
+  // console.log(data, "data");
+
+  // useEffect(() => {
+  //   if (!loadingRef.current) return;
+  //   const observer = new IntersectionObserver(
+  //     ([entry]) => {
+  //       if (entry.isIntersecting) {
+  //         console.log("inside intersection...");
+  //         setResults((prev) => prev + 1);
+  //       }
+  //     },
+  //     { threshold: 1 }
+  //   );
+  //   observer.observe(loadingRef.current);
+  //   return () => {
+  //     if (loadingRef.current) observer.unobserve(loadingRef.current);
+  //   };
+  // }, [results, data]);
+
+  if (loading) {
+    return <VideosLoader />;
   }
 
   return (
-    <div className={styles.videoGrid}>
-      {data?.items?.map((items, index) => (
-        <section key={index} className={styles.videoWrapper}>
-          <CustomVideo
-            videoImage={items?.snippet?.thumbnails?.maxres?.url}
-            creatorImage={items?.snippet?.thumbnails?.default?.url}
-            title={items?.snippet?.title}
-            timePosted={items?.snippet?.publishedAt}
-            totalViews={items?.statistics?.viewCount}
-            link={`watch/${items?.id}`}
-            authorTitle={items?.snippet?.channelTitle}
-          />
-        </section>
-      ))}
-    </div>
+    <>
+      <VideosGrid data={data} />
+      {/* <div ref={loadingRef}>loading.....</div> */}
+    </>
   );
 };
 

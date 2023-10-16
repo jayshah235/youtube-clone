@@ -1,17 +1,17 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import styles from "./styles.module.scss";
+import { myConfig } from "../../config";
 
 const VideoDetailPage = () => {
   const { ids } = useParams();
-  console.log(ids, "ids");
   const { data, loading } = CustomFetchHook(
-    `https://youtube.googleapis.com/youtube/v3/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+    `${myConfig.API_ENDPOINT}/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
   );
 
-  const selectedVideoData = data?.items?.[0];
+  const selectedVideoData = data?.[0];
 
-  if (data?.length || loading) {
+  if (loading) {
     return <p>loading..</p>;
   }
   return (

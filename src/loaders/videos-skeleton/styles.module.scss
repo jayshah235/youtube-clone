@@ -1,0 +1,36 @@
+@import "../../styles/variables";
+
+.videosLoader {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+.vidWidth{
+    flex-basis: 32%
+}
+.videosList {
+  @include skeleton(100%, 205px);
+}
+
+.videosInfo {
+  display: flex;
+  gap: 15px;
+  margin-top: 10px;
+}
+
+.image {
+  @include skeleton(40px, 40px);
+  border-radius: 20px;
+}
+
+.titleWrapper{
+    flex-basis: 90%
+}
+
+.title {
+  @include skeleton(90%, 20px);
+  margin-bottom: 5px;
+}
+.subTitle {
+  @include skeleton(150px, 15px);
+}

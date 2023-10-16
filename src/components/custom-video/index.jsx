@@ -25,7 +25,9 @@ export const CustomVideo = (props) => {
           <p>{authorTitle}</p>
           {timePosted?.length && (
             <div className={styles.videoResultSection}>
-              <p>{Number(totalViews)?.toLocaleString()} Views</p>
+              {totalViews?.length && (
+                <p>{Number(totalViews)?.toLocaleString()} Views</p>
+              )}
               <p>{timePosted}</p>
             </div>
           )}

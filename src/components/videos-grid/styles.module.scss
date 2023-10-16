@@ -1,0 +1,12 @@
+.videoGrid {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-top: 15px;
+  }
+
+  .videoWrapper {
+    flex-basis: 32%;
+  }

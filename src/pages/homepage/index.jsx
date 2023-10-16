@@ -1,7 +1,8 @@
 import { Suspense, lazy, useEffect } from "react";
-import styles from "./style.module.scss";
 import { SidebarLoader } from "../../loaders/sidebar-skeleton";
 import { SliderLoader } from "../../loaders/sliders-skeleton";
+import { VideosLoader } from "../../loaders/videos-skeleton";
+import styles from "./style.module.scss";
 
 const LazySideBar = lazy(() => import("../../components/homepage-sidebar"));
 const LazyLoadVideos = lazy(() => import("./homepage-videos"));
@@ -22,7 +23,7 @@ export const HomePage = () => {
         <Suspense fallback={<SliderLoader />}>
           <LazyLoadSliders />
         </Suspense>
-        <Suspense fallback={<>loading........</>}>
+        <Suspense fallback={<VideosLoader />}>
           <LazyLoadVideos />
         </Suspense>
       </section>

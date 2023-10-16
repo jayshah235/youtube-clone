@@ -29,7 +29,7 @@
 }
 
 @mixin skeleton($width, $height) {
-  animation: skeleton-loading 1s linear infinite alternate;
+  animation: skeleton-loading 1.2s linear infinite alternate;
   width: $width;
   height: $height;
   border-radius: 10px;
