@@ -57,7 +57,7 @@ const Header = ({ themeMode }) => {
           <IconsConatiner>
             <IoMdNotificationsOutline size="25px" className="icons" />
           </IconsConatiner>
-          <Link
+          <div
             className={styles.userInfoContainer}
             onClick={() => setShowSetting(!showSetting)}
           >
@@ -104,7 +104,7 @@ const Header = ({ themeMode }) => {
                 )}
               </div>
             )}
-          </Link>
+          </div>
         </div>
       </header>
     </>

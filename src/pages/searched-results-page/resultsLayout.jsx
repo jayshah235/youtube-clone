@@ -7,11 +7,12 @@ import { VideosLoader } from "../../loaders/videos-skeleton";
 
 const SearchedResultsLayout = () => {
   const { str } = useParams();
-  const { data, loading } = CustomFetchHook(
-    `${myConfig.API_ENDPOINT}/search?part=snippet&maxResults=50&q=${str}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+  const { data, loading, error } = CustomFetchHook(
+    `${myConfig.API_ENDPOINT}/search?part=snippet&maxResults=50&q=${str}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+    false
   );
 
-  const filterVideos = data?.filter(
+  const filterVideos = data?.items?.filter(
     (s) => s.id.kind === "youtube#video"
   );
 
@@ -22,8 +23,16 @@ const SearchedResultsLayout = () => {
       </div>
     );
   }
+
+  if (error) {
+    return error.message;
+  }
+
   return (
     <div className={styles.searchResultsContainer}>
+      <h2 className={styles.resultsTitle}>
+        Showing results for:- <strong> {str} </strong>
+      </h2>
       <VideosGrid data={filterVideos} />
     </div>
   );

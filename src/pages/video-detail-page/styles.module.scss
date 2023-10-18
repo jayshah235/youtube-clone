@@ -7,7 +7,9 @@
 
   .playVideoWrapper {
     flex-basis: 60%;
+  }
 
+  .videoPlayerContainer {
     iframe {
       border-radius: 10px;
     }

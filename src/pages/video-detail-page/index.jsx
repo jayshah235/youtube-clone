@@ -1,46 +1,38 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
-import styles from "./styles.module.scss";
 import { myConfig } from "../../config";
+import { Suspense, lazy } from "react";
+import styles from "./styles.module.scss";
+
+const LazyLoadVideos = lazy(() => import("./video-section"));
 
 const VideoDetailPage = () => {
   const { ids } = useParams();
-  const { data, loading } = CustomFetchHook(
-    `${myConfig.API_ENDPOINT}/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`
+  const { data, loading, error } = CustomFetchHook(
+    `${myConfig.API_ENDPOINT}/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+    false
   );
 
-  const selectedVideoData = data?.[0];
+  const selectedVideoData = data?.items?.[0];
 
   if (loading) {
     return <p>loading..</p>;
   }
+
+  if (error) {
+    return error.message;
+  }
+
   return (
     <article className={styles.detailPageWrapper}>
       <section className={styles.playVideoWrapper}>
-        <iframe
-          width="100%"
-          height="450px"
-          src={`https://www.youtube.com/embed/${selectedVideoData?.id}?enablejsapi=1&autoplay=1`}
-          title="YouTube video player"
-          allow="accelerometer; autoplay;
-  clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowFullScreen
-        />
-        <h2>{selectedVideoData?.snippet?.title}</h2>
-        <div className={styles.creatorInfo}>
-          <figure>
-            <img
-              src={selectedVideoData?.snippet?.thumbnails?.default?.url}
-              alt="thimbnail"
-            />
-          </figure>
-          <div className={styles.subsInfo}>
-            <h6>{selectedVideoData?.snippet?.channelTitle}</h6>
-            <p>197 subscribers</p>
-          </div>
-        </div>
+        <Suspense fallback={<>video is loading..........</>}>
+          <LazyLoadVideos selectedVideoData={selectedVideoData} />
+        </Suspense>
       </section>
-      <section className={styles.playlistWrapper}></section>
+      <section className={styles.playlistWrapper}>
+        Most close playlist is going to appear here..
+      </section>
     </article>
   );
 };

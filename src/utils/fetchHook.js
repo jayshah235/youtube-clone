@@ -1,14 +1,6 @@
 import { useEffect, useState } from "react";
 
-// export const options = {
-//   method: "GET",
-//   headers: {
-//     "X-RapidAPI-Key": myConfig.API_PUBLIC_KEY,
-//     "X-RapidAPI-Host": myConfig.API_HOST,
-//   },
-// };
-
-export const CustomFetchHook = (url) => {
+export const CustomFetchHook = (url, appendNewData) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
@@ -19,8 +11,14 @@ export const CustomFetchHook = (url) => {
       try {
         const getResponse = await fetch(url);
         const response = await getResponse?.json();
-        console.log(response, 'response')
-        setData((prev) => [...prev, ...response.items]);
+        if (response?.error) {
+          throw new Error('Oops Something Went Wrong....');
+        };
+        if (appendNewData) {
+          setData((prev) => [...prev, ...response?.items]);
+        } else {
+          setData(response);
+        }
         setLoading(false);
       } catch (err) {
         setLoading(false);
@@ -31,4 +29,3 @@ export const CustomFetchHook = (url) => {
 
   return { data, error, loading };
 };
-

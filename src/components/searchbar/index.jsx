@@ -6,8 +6,7 @@ import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 
 const SearchBar = () => {
-  const { value, setValue, searchValue, setSearchValue } = useGlobalContext();
-  console.log(searchValue, "search");
+  const { value, setValue, setSearchValue } = useGlobalContext();
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
@@ -30,7 +29,7 @@ const SearchBar = () => {
             onChange={(e) => setValue(e.target.value)}
           />
         </div>
-        <button className={styles.searchIcon} type="submit">
+        <button className={styles.searchIcon} type="submit" id="search" aria-label="search">
           <GoSearch size="20px" className="icons" />
         </button>
       </form>

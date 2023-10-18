@@ -1,6 +1,5 @@
-import React from "react";
-import styles from "./styles.module.scss";
 import { CustomVideo } from "../custom-video";
+import styles from "./styles.module.scss";
 
 const VideosGrid = ({ data }) => {
   return (
@@ -12,7 +11,6 @@ const VideosGrid = ({ data }) => {
               items?.snippet?.thumbnails?.maxres?.url ??
               items?.snippet?.thumbnails?.high?.url
             }
-            creatorImage={items?.snippet?.thumbnails?.default?.url}
             title={items?.snippet?.title}
             timePosted={items?.snippet?.publishedAt}
             totalViews={items?.statistics?.viewCount}

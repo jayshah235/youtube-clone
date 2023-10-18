@@ -5,7 +5,7 @@ import { HeaderLoader } from "../loaders/header-skeleton/header-loader";
 
 const LazyHeader = lazy(() => import("../components/header"));
 
-export const MainLayout = () => {
+const MainLayout = () => {
   const { theme, setTheme } = useGlobalContext();
 
   const toggleMode = () => {
@@ -26,3 +26,5 @@ export const MainLayout = () => {
     </main>
   );
 };
+
+export default MainLayout;

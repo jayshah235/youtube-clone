@@ -5,8 +5,8 @@
   gap: 20px;
   flex-wrap: wrap;
 }
-.vidWidth{
-    flex-basis: 32%
+.vidWidth {
+  flex-basis: 32%;
 }
 .videosList {
   @include skeleton(100%, 205px);
@@ -23,8 +23,8 @@
   border-radius: 20px;
 }
 
-.titleWrapper{
-    flex-basis: 90%
+.titleWrapper {
+  flex-basis: 90%;
 }
 
 .title {

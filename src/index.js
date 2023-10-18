@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Suspense } from "react";
 import ReactDOM from "react-dom/client";
 import "./index.css";
 import { RouterProvider } from "react-router-dom";
@@ -6,6 +6,7 @@ import { routeObject } from "./routes";
 import { StoreProvider } from "./store/store";
 import { Auth0Provider } from "@auth0/auth0-react";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { InitialLoadUi } from "./components/initial-load-ui-component";
 
 const queryClient = new QueryClient();
 
@@ -21,7 +22,9 @@ root.render(
     >
       <StoreProvider>
         <QueryClientProvider client={queryClient}>
-          <RouterProvider router={routeObject} />
+          <Suspense fallback={<InitialLoadUi />}>
+            <RouterProvider router={routeObject} />
+          </Suspense>
         </QueryClientProvider>
       </StoreProvider>
     </Auth0Provider>

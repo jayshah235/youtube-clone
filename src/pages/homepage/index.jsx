@@ -8,7 +8,7 @@ const LazySideBar = lazy(() => import("../../components/homepage-sidebar"));
 const LazyLoadVideos = lazy(() => import("./homepage-videos"));
 const LazyLoadSliders = lazy(() => import("../../components/sliders"));
 
-export const HomePage = () => {
+const HomePage = () => {
   useEffect(() => {
     localStorage.setItem("theme", "light-theme");
   }, []);
@@ -23,10 +23,18 @@ export const HomePage = () => {
         <Suspense fallback={<SliderLoader />}>
           <LazyLoadSliders />
         </Suspense>
-        <Suspense fallback={<VideosLoader />}>
+        <Suspense
+          fallback={
+            <div style={{ marginTop: "20px" }}>
+              <VideosLoader />
+            </div>
+          }
+        >
           <LazyLoadVideos />
         </Suspense>
       </section>
     </article>
   );
 };
+
+export default HomePage;

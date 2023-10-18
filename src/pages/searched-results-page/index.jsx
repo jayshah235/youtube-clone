@@ -4,7 +4,7 @@ import styles from "./styles.module.scss";
 
 const LazySearchResults = lazy(() => import("./resultsLayout"));
 
-export const SearchedResults = () => {
+const SearchedResults = () => {
   return (
     <Suspense
       fallback={
@@ -17,3 +17,5 @@ export const SearchedResults = () => {
     </Suspense>
   );
 };
+
+export default SearchedResults;

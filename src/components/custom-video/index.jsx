@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
+import Image from "../image-component";
+import placeholderimage from "../../assets/placeholdersrc.jpg";
 import styles from "./styles.module.scss";
 
 export const CustomVideo = (props) => {
   const {
     videoImage,
-    creatorImage,
     title,
     timePosted,
     totalViews,
@@ -14,10 +15,18 @@ export const CustomVideo = (props) => {
   return (
     <Link to={link} className={styles.videoContainer}>
       <figure className={styles.videoImage}>
-        <img src={videoImage} alt="" />
+        <Image
+          loadingSrc={placeholderimage}
+          src={videoImage}
+          placeHolderStyle={{ width: "100%" }}
+        />
       </figure>
       <div className={styles.videoContent}>
-        <img src={creatorImage} alt="" />
+        <Image
+          loadingSrc={placeholderimage}
+          src={videoImage}
+          placeHolderStyle={{ width: "40px" }}
+        />
         <div className={styles.videoDesc}>
           <h3>
             {title?.length > 58 ? `${title?.substring(0, 58)}...` : title}

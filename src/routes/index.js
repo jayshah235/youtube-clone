@@ -1,31 +1,34 @@
 import { createBrowserRouter } from "react-router-dom";
-import ErrorPage from "../components/error-page";
-import { MainLayout } from "../pages/main";
-import { HomePage } from "../pages/homepage";
-import VideoDetailPage from "../pages/video-detail-page";
-import { SearchedResults } from "../pages/searched-results-page";
+import { lazy } from "react";
+
+const LazyLoadMainLayout = lazy(() => import('../pages/main'));
+const LazyErrorPage = lazy(() => import('../components/error-page'));
+const LazyVideoDetailPage = lazy(() => import('../pages/video-detail-page'))
+const LazyLoadHomePage = lazy(() => import('../pages/homepage'));
+const LazyLoadSearchResultsPage = lazy(() => import('../pages/searched-results-page'));
+
 
 export const routeObject = createBrowserRouter([
   {
     path: "*",
-    element: <ErrorPage />,
+    element: <LazyErrorPage />,
   },
   {
     path: "youtube-clone/*",
-    element: <MainLayout />,
-    errorElement: <ErrorPage />,
+    element: <LazyLoadMainLayout />,
+    errorElement: <LazyErrorPage />,
     children: [
       {
         path: "",
-        element: <HomePage />,
+        element: <LazyLoadHomePage />,
       },
       {
         path: "watch/:ids",
-        element: <VideoDetailPage />,
+        element: <LazyVideoDetailPage />,
       },
       {
         path: "search/:str",
-        element: <SearchedResults />,
+        element: <LazyLoadSearchResultsPage />,
       },
     ],
   },
