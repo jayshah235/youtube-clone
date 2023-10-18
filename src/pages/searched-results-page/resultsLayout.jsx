@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { myConfig } from "../../config";
-import VideosGrid from "../../components/videos-grid";
 import styles from "./styles.module.scss";
 import { VideosLoader } from "../../loaders/videos-skeleton";
+import { SearchCustomVideo } from "../../components/search-custom-video";
 
 const SearchedResultsLayout = () => {
   const { str } = useParams();
@@ -33,7 +33,21 @@ const SearchedResultsLayout = () => {
       <h2 className={styles.resultsTitle}>
         Showing results for:- <strong> {str} </strong>
       </h2>
-      <VideosGrid data={filterVideos} />
+      {filterVideos?.map((items, index) => (
+        <SearchCustomVideo
+          key={index}
+          videoImage={
+            items?.snippet?.thumbnails?.maxres?.url ??
+            items?.snippet?.thumbnails?.high?.url
+          }
+          title={items?.snippet?.title}
+          timePosted={items?.snippet?.publishedAt}
+          totalViews={items?.statistics?.viewCount}
+          link={`/youtube-clone/watch/${items?.id?.videoId ?? items?.id}`}
+          authorTitle={items?.snippet?.channelTitle}
+          description={items?.snippet?.description}
+        />
+      ))}
     </div>
   );
 };

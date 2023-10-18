@@ -1,0 +1,72 @@
+@import "../../styles//variables";
+
+.videoContainer {
+  @include flexCenter(flex-start, flex-start);
+  cursor: pointer;
+  transition: 0.5s;
+  margin-bottom: 15px;
+  gap: 15px;
+
+  &:hover {
+    background: var(--secondary-bg-color);
+    // transform: scale(1.1);
+    img {
+      border-radius: 0;
+      transition: 0.5s;
+    }
+  }
+}
+
+.videoImage {
+  max-width: 360px;
+  min-width: 240px;
+  flex: 1;
+  img {
+    border-radius: 12px;
+    object-fit: cover;
+    max-height: 240px;
+  }
+}
+
+.videoContent {
+  flex-basis: 60%;
+  padding: 10px 5px;
+  h3 {
+    @include font(var(--primary-font-color), 18px, 500);
+    letter-spacing: 0;
+    text-transform: capitalize;
+    line-height: 24px;
+  }
+}
+
+.para {
+  @include font(var(--secondary-font-color), 14px, 400);
+  margin-block: 8px;
+}
+
+.videoDesc {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-block: 6px;
+  img {
+    width: 40px;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+}
+
+@media (max-width: 800px) {
+  .videoContainer {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .videoImage {
+    min-width: 100%;
+    img {
+      max-height: 100%;
+    }
+  }
+}

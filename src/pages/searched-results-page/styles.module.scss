@@ -1,7 +1,7 @@
 @import '../../styles/variables.scss';
 
 .searchResultsContainer {
-  width: 90%;
+  width: 80%;
   margin: 20px auto;
 }
 
@@ -9,9 +9,14 @@
   text-transform: capitalize;
   margin-bottom: 30px;
   text-align: center;
-  @include font(--primary-font-color, 18px, 600);
+  @include font(var(--primary-font-color), 18px, 600);
   strong {
     font-size: 16px;
     font-weight: 500;
   }
+}
+
+.videoWrapper{
+  display: flex;
+  align-items: flex-start;
 }

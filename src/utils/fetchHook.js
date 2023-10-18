@@ -12,8 +12,8 @@ export const CustomFetchHook = (url, appendNewData) => {
         const getResponse = await fetch(url);
         const response = await getResponse?.json();
         if (response?.error) {
-          throw new Error('Oops Something Went Wrong....');
-        };
+          throw new Error("Oops Something Went Wrong....");
+        }
         if (appendNewData) {
           setData((prev) => [...prev, ...response?.items]);
         } else {
@@ -25,7 +25,7 @@ export const CustomFetchHook = (url, appendNewData) => {
         setError(err);
       }
     })();
-  }, [url]);
+  }, [url, appendNewData]);
 
   return { data, error, loading };
 };

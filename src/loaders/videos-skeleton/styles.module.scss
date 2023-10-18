@@ -6,7 +6,7 @@
   flex-wrap: wrap;
 }
 .vidWidth {
-  flex-basis: 32%;
+  flex-basis: 23%;
 }
 .videosList {
   @include skeleton(100%, 205px);
@@ -33,4 +33,19 @@
 }
 .subTitle {
   @include skeleton(150px, 15px);
+}
+
+@media (max-width: 880px) {
+  .videosLoader {
+    justify-content: space-between;
+  }
+  .vidWidth {
+    flex-basis: 47%;
+  }
+}
+
+@media (max-width: 680px) {
+  .vidWidth {
+    flex-basis: 100%;
+  }
 }
