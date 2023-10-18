@@ -1,12 +1,27 @@
 .videoGrid {
-    width: 100%;
-    display: flex;
-    justify-content: flex-start;
-    gap: 15px;
-    flex-wrap: wrap;
-    margin-top: 15px;
-  }
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 15px;
+}
 
-  .videoWrapper {
-    flex-basis: 32%;
+.videoWrapper {
+  flex-basis: 32%;
+}
+
+@media (max-width: 880px) {
+  .videoGrid {
+    justify-content: space-between;
   }
+  .videoWrapper {
+    flex-basis: 47%;
+  }
+}
+
+@media (max-width: 680px) {
+  .videoWrapper {
+    flex-basis: 100%;
+  }
+}

@@ -29,12 +29,17 @@ const SearchBar = () => {
             onChange={(e) => setValue(e.target.value)}
           />
         </div>
-        <button className={styles.searchIcon} type="submit" id="search" aria-label="search">
-          <GoSearch size="20px" className="icons" />
+        <button
+          className={styles.searchIcon}
+          type="submit"
+          id="search"
+          aria-label="search"
+        >
+          <GoSearch className="small-icons" />
         </button>
       </form>
       <IconsConatiner bgActive={true}>
-        <MdKeyboardVoice size="20px" className="icons" />
+        <MdKeyboardVoice className="small-icons" />
       </IconsConatiner>
     </div>
   );

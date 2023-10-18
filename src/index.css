@@ -50,6 +50,29 @@ code {
 .icons {
   color: var(--primary-font-color);
   cursor: pointer;
+  width: 25px;
+  height: 25px;
+}
+
+.large-icons {
+  color: var(--primary-font-color);
+  cursor: pointer;
+  width: 30px;
+  height: 30px;
+}
+
+.small-icons {
+  color: var(--primary-font-color);
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 800px) {
+  .icons {
+    width: 20px;
+    height: 20px;
+  }
 }
 
 .btn {

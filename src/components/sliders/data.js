@@ -11,22 +11,4 @@ export const slidersData = [
   {
     label: "gaming",
   },
-  {
-    label: "react routers",
-  },
-  {
-    label: "python",
-  },
-  {
-    label: "website",
-  },
-  {
-    label: "live",
-  },
-  {
-    label: "React",
-  },
-  {
-    label: "Vue",
-  },
 ];

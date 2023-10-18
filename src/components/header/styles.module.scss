@@ -84,10 +84,16 @@
   }
 }
 
-.setModes{
+.setModes {
   display: flex;
   align-items: center;
   padding: 15px;
   gap: 20px;
   border-bottom: 1px solid var(--border-color);
+}
+
+@media (max-width: 800px) {
+  .desktopBtn, .searchSection {
+    display: none;
+  }
 }

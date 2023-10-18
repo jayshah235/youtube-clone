@@ -17,7 +17,6 @@
   p {
     max-width: 100%;
     display: block;
-    line-height: 22px;
     @include font(var(--primary-font-color), 12px, 400);
   }
 }

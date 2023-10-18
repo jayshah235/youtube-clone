@@ -36,4 +36,18 @@
   }
 }
 
+@media (max-width: 800px) {
+  .sideBarContainer {
+    position: fixed !important;
+    bottom: 0;
+    flex-direction: row !important;
+    background: white;
+    top: inherit !important;
+    justify-content: space-around !important;
+    width: 100%;
+  }
 
+  .mainContentContainer{
+    padding: 20px;
+  }
+}

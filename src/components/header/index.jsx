@@ -30,8 +30,8 @@ const Header = ({ themeMode }) => {
       </Modal>
       <header className={styles.headerWrapper}>
         <div className={styles.logoSection}>
-          <IconsConatiner onClick={() => setModal(!modal)}>
-            <RxTextAlignJustify size="30px" className="icons" />
+          <IconsConatiner onClick={() => setModal(!modal)} customClass={styles.desktopBtn}>
+            <RxTextAlignJustify className="large-icons" />
           </IconsConatiner>
           <Link
             to="/youtube-clone"
@@ -46,16 +46,16 @@ const Header = ({ themeMode }) => {
         <div className={styles.manageAcountSection}>
           <IconsConatiner onClick={() => themeMode()}>
             {getTheme ? (
-              <MdOutlineDarkMode size="25px" className="icons" />
+              <MdOutlineDarkMode  className="icons" />
             ) : (
-              <MdOutlineLightMode size="25px" className="icons" />
+              <MdOutlineLightMode className="icons" />
             )}
           </IconsConatiner>
-          <IconsConatiner>
-            <VscDeviceCameraVideo size="25px" className="icons" />
+          <IconsConatiner customClass={styles.desktopBtn}>
+            <VscDeviceCameraVideo  className="icons" />
           </IconsConatiner>
           <IconsConatiner>
-            <IoMdNotificationsOutline size="25px" className="icons" />
+            <IoMdNotificationsOutline  className="icons" />
           </IconsConatiner>
           <div
             className={styles.userInfoContainer}
@@ -67,7 +67,7 @@ const Header = ({ themeMode }) => {
                   <img src={user?.picture ?? ""} alt="" />
                 </figure>
               ) : (
-                <CgProfile size="25px" className="icons" />
+                <CgProfile className="icons" />
               )}
             </IconsConatiner>
             {showSetting && (
