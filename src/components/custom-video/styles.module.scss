@@ -9,7 +9,6 @@
 
   &:hover {
     background: var(--secondary-bg-color);
-    // transform: scale(1.1);
     img {
       border-radius: 0;
       transition: 0.5s;
@@ -20,10 +19,10 @@
 .videoImage {
   transition: 0.5s;
   width: 100%;
-  // height: 205px;
   img {
     border-radius: 12px;
     object-fit: cover;
+    max-height: 155px
   }
 }
 
@@ -48,7 +47,6 @@
     @include font(var(--primary-font-color), 16px, 500);
     letter-spacing: 0;
     text-transform: capitalize;
-    line-height: 24px;
   }
   p {
     @include font(var(--secondary-font-color), 14px, 400);

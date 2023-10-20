@@ -12,6 +12,8 @@ export const CustomVideo = (props) => {
     link,
     authorTitle,
   } = props;
+
+  console.log(timePosted, 'timeposted')
   return (
     <Link to={link} className={styles.videoContainer}>
       <figure className={styles.videoImage}>
@@ -32,14 +34,14 @@ export const CustomVideo = (props) => {
             {title?.length > 58 ? `${title?.substring(0, 58)}...` : title}
           </h3>
           <p>{authorTitle}</p>
-          {timePosted?.length && (
+          {/* {timePosted?.length && ( */}
             <div className={styles.videoResultSection}>
               {totalViews?.length && (
                 <p>{Number(totalViews)?.toLocaleString()} Views</p>
               )}
               <p>{timePosted}</p>
             </div>
-          )}
+          {/* )} */}
         </div>
       </div>
     </Link>
