@@ -1,6 +1,5 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
-import { myConfig } from "../../config";
 import { Suspense, lazy } from "react";
 import styles from "./styles.module.scss";
 
@@ -9,7 +8,7 @@ const LazyLoadVideos = lazy(() => import("./video-section"));
 const VideoDetailPage = () => {
   const { ids } = useParams();
   const { data, loading, error } = CustomFetchHook(
-    `${myConfig.API_ENDPOINT}/videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+    `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}`,
     false
   );
 

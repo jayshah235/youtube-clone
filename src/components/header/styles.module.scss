@@ -29,14 +29,6 @@
   }
 }
 
-.sidebarConatiner {
-  padding: 15px;
-  p {
-    @include contentListWithHover();
-    margin-block: 5px;
-  }
-}
-
 .userInfoContainer {
   position: relative;
 
@@ -93,7 +85,37 @@
 }
 
 @media (max-width: 800px) {
-  .desktopBtn, .searchSection {
+  .desktopBtn,
+  .searchSection {
     display: none;
   }
+}
+
+//sidebar css
+
+.sidebarConatiner {
+  padding: 15px;
+  border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 400;
+}
+
+.listSections {
+  margin-block: 15px;
+  @include contentListWithHover();
+}
+
+.copyright {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--secondary-font-color);
+  line-height: 1.5;
 }

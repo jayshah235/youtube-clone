@@ -1,21 +1,28 @@
 @import "../../styles/variables";
 
-.videosLoader {
-  display: flex;
-  gap: 15px;
-  flex-wrap: wrap;
-}
 .vidWidth {
-  flex-basis: 24%;
+  display: flex;
+  gap: 20px;
+  margin-block: 15px;
 }
 .videosList {
-  @include skeleton(100%, 159px);
+  @include skeleton(360px, 200px);
+}
+
+.contentSize {
+  flex-basis: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.heading {
+  @include skeleton(100%, 30px);
 }
 
 .videosInfo {
   display: flex;
   gap: 15px;
-  margin-top: 10px;
 }
 
 .image {
@@ -35,17 +42,11 @@
   @include skeleton(150px, 15px);
 }
 
-@media (max-width: 880px) {
-  .videosLoader {
-    justify-content: space-between;
-  }
+@media (max-width: 800px) {
   .vidWidth {
-    flex-basis: 47%;
+    flex-direction: column;
   }
-}
-
-@media (max-width: 680px) {
-  .vidWidth {
-    flex-basis: 100%;
+  .videosList {
+    @include skeleton(100%, 250px);
   }
 }

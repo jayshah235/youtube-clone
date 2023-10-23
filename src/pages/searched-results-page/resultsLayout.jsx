@@ -1,14 +1,13 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
-import { myConfig } from "../../config";
-import styles from "./styles.module.scss";
-import { VideosLoader } from "../../loaders/videos-skeleton";
 import { SearchCustomVideo } from "../../components/search-custom-video";
+import styles from "./styles.module.scss";
+import { SearchedVideosLoader } from "../../loaders/searched-videos-skeleton";
 
 const SearchedResultsLayout = () => {
   const { str } = useParams();
   const { data, loading, error } = CustomFetchHook(
-    `${myConfig.API_ENDPOINT}/search?part=snippet&maxResults=50&q=${str}&key=${process.env.REACT_APP_YOUTUBE_API_KEY}`,
+    `search?part=snippet&maxResults=50&q=${str}`,
     false
   );
 
@@ -19,7 +18,7 @@ const SearchedResultsLayout = () => {
   if (loading) {
     return (
       <div className={styles.searchResultsContainer}>
-        <VideosLoader />
+        <SearchedVideosLoader />
       </div>
     );
   }

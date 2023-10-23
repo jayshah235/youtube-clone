@@ -19,13 +19,16 @@
 }
 
 @mixin contentListWithHover() {
-  height: 32px;
-  padding: 0 12px;
-  background: var(--icons-bg);
+  padding: 6px 12px;
   border-radius: 5px;
-  @include flexCenter();
-  @include bgTransitionWithHover();
+  display: flex;
+  align-items: center;
+  gap: 20px;
   @include font(var(--primary-font-color), 13px, 400);
+  &:hover {
+    @include bgTransitionWithHover();
+    background: var(--icons-bg-on-hover);
+  }
 }
 
 @mixin skeleton($width, $height) {

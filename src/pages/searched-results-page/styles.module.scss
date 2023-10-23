@@ -1,4 +1,4 @@
-@import '../../styles/variables.scss';
+@import "../../styles/variables.scss";
 
 .searchResultsContainer {
   width: 80%;
@@ -16,7 +16,7 @@
   }
 }
 
-.videoWrapper{
+.videoWrapper {
   display: flex;
   align-items: flex-start;
 }

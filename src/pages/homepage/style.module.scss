@@ -10,6 +10,7 @@
     gap: 10px;
     position: sticky;
     top: 66px;
+    background: var(--bg-color);
   }
 
   .mainContentContainer {
@@ -41,7 +42,6 @@
     position: fixed !important;
     bottom: 0;
     flex-direction: row !important;
-    background: white;
     top: inherit !important;
     justify-content: space-around !important;
     width: 100%;
@@ -49,5 +49,6 @@
 
   .mainContentContainer{
     padding: 20px;
+    margin-right: 0 !important;
   }
 }

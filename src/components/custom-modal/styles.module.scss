@@ -19,6 +19,7 @@
   background: var(--bg-color);
   z-index: 1000;
   width: 19%;
+  overflow: auto;
 }
 
 .logoSection {
@@ -32,4 +33,8 @@
     .logoHeight {
       height: 29px;
     }
+  }
+
+  .modalContainer::-webkit-scrollbar {
+    display: none;
   }

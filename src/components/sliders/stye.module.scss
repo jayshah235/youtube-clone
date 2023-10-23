@@ -17,5 +17,6 @@
 
   li {
    @include contentListWithHover();
+  background: var(--icons-bg);
   }
 }

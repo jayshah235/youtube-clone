@@ -11,4 +11,13 @@ export const slidersData = [
   {
     label: "gaming",
   },
+  {
+    label: "programming",
+  },
+  {
+    label: "news",
+  },
+  {
+    label: "sports",
+  },
 ];

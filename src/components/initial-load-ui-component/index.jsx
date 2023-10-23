@@ -1,5 +1,6 @@
 import Image from "../image-component";
 import image from "../../assets/youtube.png";
+import dummyImage from "../../assets/placeholdersrc.jpg";
 
 export const InitialLoadUi = () => {
   return (
@@ -9,9 +10,10 @@ export const InitialLoadUi = () => {
         top: "50%",
         left: "50%",
         transform: `translate(${-50}%, ${-50}%)`,
+        width: '60px'
       }}
     >
-      <Image src={image} />
+      <Image loadingSrc={dummyImage} src={image} />
     </div>
   );
 };

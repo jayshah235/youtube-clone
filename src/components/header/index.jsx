@@ -11,8 +11,9 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../store/store";
 import { useState } from "react";
 import { Modal } from "../custom-modal";
-import styles from "./styles.module.scss";
 import { useAuth0 } from "@auth0/auth0-react";
+import SideBarInfo from "./sidebarInfo";
+import styles from "./styles.module.scss";
 
 const Header = ({ themeMode }) => {
   const { theme } = useGlobalContext();
@@ -23,14 +24,14 @@ const Header = ({ themeMode }) => {
   return (
     <>
       <Modal showModal={modal} closeModal={() => setModal(false)}>
-        <div className={styles.sidebarConatiner}>
-          <p>test</p>
-          <p>test</p>
-        </div>
+        <SideBarInfo closeModal={() => setModal(false)} />
       </Modal>
       <header className={styles.headerWrapper}>
         <div className={styles.logoSection}>
-          <IconsConatiner onClick={() => setModal(!modal)} customClass={styles.desktopBtn}>
+          <IconsConatiner
+            onClick={() => setModal(!modal)}
+            customClass={styles.desktopBtn}
+          >
             <RxTextAlignJustify className="large-icons" />
           </IconsConatiner>
           <Link
@@ -46,16 +47,16 @@ const Header = ({ themeMode }) => {
         <div className={styles.manageAcountSection}>
           <IconsConatiner onClick={() => themeMode()}>
             {getTheme ? (
-              <MdOutlineDarkMode  className="icons" />
+              <MdOutlineDarkMode className="icons" />
             ) : (
               <MdOutlineLightMode className="icons" />
             )}
           </IconsConatiner>
           <IconsConatiner customClass={styles.desktopBtn}>
-            <VscDeviceCameraVideo  className="icons" />
+            <VscDeviceCameraVideo className="icons" />
           </IconsConatiner>
           <IconsConatiner>
-            <IoMdNotificationsOutline  className="icons" />
+            <IoMdNotificationsOutline className="icons" />
           </IconsConatiner>
           <div
             className={styles.userInfoContainer}
