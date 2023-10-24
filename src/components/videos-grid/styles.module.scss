@@ -9,6 +9,7 @@
 
 .videoWrapper {
   flex-basis: 24%;
+  flex-grow: 1;
 }
 
 @media (max-width: 880px) {
