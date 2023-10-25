@@ -1,6 +1,6 @@
 import { RxTextAlignJustify } from "react-icons/rx";
 import logo from "../../assets/youtubeLogo.png";
-import darkModeLogo from "../../assets/dark-mode-logo.png";
+import darkModeLogo from "../../assets/darkmodelogo.png";
 import SearchBar from "../searchbar";
 import { VscDeviceCameraVideo } from "react-icons/vsc";
 import { IoMdNotificationsOutline } from "react-icons/io";
@@ -19,11 +19,15 @@ const Header = ({ themeMode }) => {
   const { theme } = useGlobalContext();
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
   const [showSetting, setShowSetting] = useState(false);
-  const getTheme = theme === "light-theme" ?? "light-theme";
+  const getTheme = theme === "light-theme";
   const [modal, setModal] = useState(false);
   return (
     <>
-      <Modal showModal={modal} closeModal={() => setModal(false)}>
+      <Modal
+        showModal={modal}
+        closeModal={() => setModal(false)}
+        logo={getTheme ? logo : darkModeLogo}
+      >
         <SideBarInfo closeModal={() => setModal(false)} />
       </Modal>
       <header className={styles.headerWrapper}>
@@ -34,10 +38,7 @@ const Header = ({ themeMode }) => {
           >
             <RxTextAlignJustify className="large-icons" />
           </IconsConatiner>
-          <Link
-            to="/youtube-clone"
-            className={[!getTheme && styles.logoHeight, styles.logo]?.join(" ")}
-          >
+          <Link to="/youtube-clone" className={styles.logo}>
             <img src={getTheme ? logo : darkModeLogo} alt="logo" />
           </Link>
         </div>

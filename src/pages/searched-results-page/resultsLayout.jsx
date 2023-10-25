@@ -1,8 +1,8 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { SearchCustomVideo } from "../../components/search-custom-video";
-import styles from "./styles.module.scss";
 import { SearchedVideosLoader } from "../../loaders/searched-videos-skeleton";
+import styles from "./styles.module.scss";
 
 const SearchedResultsLayout = () => {
   const { str } = useParams();
