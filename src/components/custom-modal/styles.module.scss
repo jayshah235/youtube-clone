@@ -38,3 +38,21 @@
   .modalContainer::-webkit-scrollbar {
     display: none;
   }
+
+  @media(max-width: 1000px){
+    .modalContainer{
+      width: 25%;
+    }
+  }
+
+  @media(max-width: 780px){
+    .modalContainer{
+      width: 40%;
+    }
+  }
+
+  @media(max-width: 500px){
+    .modalContainer{
+      width: 80%;
+    }
+  }

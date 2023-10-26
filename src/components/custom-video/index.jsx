@@ -34,14 +34,12 @@ export const CustomVideo = (props) => {
             {title?.length > 58 ? `${title?.substring(0, 58)}...` : title}
           </h3>
           <p>{authorTitle}</p>
-          {/* {timePosted?.length && ( */}
             <div className={styles.videoResultSection}>
               {totalViews?.length && (
-                <p>{Number(totalViews)?.toLocaleString()} Views</p>
+                <p>{totalViews} Views</p>
               )}
               <p>{timePosted}</p>
             </div>
-          {/* )} */}
         </div>
       </div>
     </Link>
