@@ -27,7 +27,7 @@ const VideosGrid = ({ data }) => {
             title={items?.snippet?.title}
             timePosted={items?.snippet?.publishedAt}
             totalViews={viewsFormatter(items?.statistics?.viewCount)}
-            link={`/youtube-clone/watch/${items?.id?.videoId ?? items?.id}`}
+            link={`/youtube-clone/watch/${items?.id?.videoId ?? items?.id}/${items?.snippet.channelTitle}`}
             authorTitle={items?.snippet?.channelTitle}
           />
         </section>

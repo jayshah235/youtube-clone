@@ -11,6 +11,7 @@ export const SearchCustomVideo = (props) => {
     link,
     authorTitle,
     description,
+    videoContentClassName
   } = props;
   return (
     <Link to={link} className={styles.videoContainer}>
@@ -21,7 +22,7 @@ export const SearchCustomVideo = (props) => {
           placeHolderStyle={{ width: "100%" }}
         />
       </figure>
-      <div className={styles.videoContent}>
+      <div className={[styles.videoContent, videoContentClassName]?.join(' ')}>
         <h3>{title}</h3>
         <p className={styles.para}>{timePosted}</p>
 

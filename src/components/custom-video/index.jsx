@@ -13,7 +13,6 @@ export const CustomVideo = (props) => {
     authorTitle,
   } = props;
 
-  console.log(timePosted, 'timeposted')
   return (
     <Link to={link} className={styles.videoContainer}>
       <figure className={styles.videoImage}>

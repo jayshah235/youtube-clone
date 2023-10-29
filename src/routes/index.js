@@ -23,7 +23,7 @@ export const routeObject = createBrowserRouter([
         element: <LazyLoadHomePage />,
       },
       {
-        path: "watch/:ids",
+        path: "watch/:ids/:name",
         element: <LazyVideoDetailPage />,
       },
       {

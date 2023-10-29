@@ -2,11 +2,12 @@ import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { Suspense, lazy } from "react";
 import styles from "./styles.module.scss";
+import CloseVideosList from "./close-videos-list";
 
 const LazyLoadVideos = lazy(() => import("./video-section"));
 
 const VideoDetailPage = () => {
-  const { ids } = useParams();
+  const { ids, name } = useParams();
   const { data, loading, error } = CustomFetchHook(
     `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}`,
     false
@@ -30,7 +31,7 @@ const VideoDetailPage = () => {
         </Suspense>
       </section>
       <section className={styles.playlistWrapper}>
-        Most close playlist is going to appear here..
+        <CloseVideosList />
       </section>
     </article>
   );

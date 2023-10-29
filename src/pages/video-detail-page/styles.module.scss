@@ -1,6 +1,6 @@
 .detailPageWrapper {
   display: flex;
-  gap: 20px;
+  gap: 30px;
   justify-content: space-between;
   width: 90%;
   margin: 20px auto;
@@ -56,6 +56,14 @@
 
   .playlistWrapper {
     flex-basis: 40%;
-    border: 1px solid black;
+    max-height: 100vh;
+    overflow: auto;
+  }
+}
+
+.content {
+  h3 {
+    font-size: 12px !important;
+    line-height: inherit !important;
   }
 }
