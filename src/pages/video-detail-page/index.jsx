@@ -7,7 +7,7 @@ import CloseVideosList from "./close-videos-list";
 const LazyLoadVideos = lazy(() => import("./video-section"));
 
 const VideoDetailPage = () => {
-  const { ids, name } = useParams();
+  const { ids } = useParams();
   const { data, loading, error } = CustomFetchHook(
     `videos?part=snippet%2CcontentDetails%2Cstatistics&id=${ids}`,
     false
