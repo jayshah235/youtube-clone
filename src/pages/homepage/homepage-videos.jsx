@@ -1,22 +1,22 @@
 import VideosGrid from "../../components/videos-grid";
 import { VideosLoader } from "../../loaders/videos-skeleton";
-import { CustomFetchHook } from "../../utils/fetchHook";
+import { useCache } from "../../utils/cacheHook";
 
 const HomePageVideos = () => {
-  const { data, loading, error } = CustomFetchHook(
-    `videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50`,
-    true
+  const { data, isError, isLoading } = useCache(
+    "homepage",
+    "videos?part=snippet%2CcontentDetails%2Cstatistics&chart=mostPopular&maxResults=50"
   );
 
-  if (loading) {
+  if (isLoading) {
     return <VideosLoader />;
-  }
+  };
 
-  if (error) {
-    return error.message;
-  }
+  if (isError) {
+    return 'Something Went Wrong...';
+  };
 
-  return <VideosGrid data={data} />;
+  return <VideosGrid data={data?.items} />;
 };
 
 export default HomePageVideos;

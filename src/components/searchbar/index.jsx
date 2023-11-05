@@ -4,16 +4,19 @@ import { IconsConatiner } from "../icons-component";
 import { useGlobalContext } from "../../store/store";
 import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
+import { useDeferredValue } from "react";
 
 const SearchBar = () => {
   const { value, setValue, setSearchValue } = useGlobalContext();
+
+  const defferedValue = useDeferredValue(value);
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (value?.length) {
-      setSearchValue(value);
-      navigate(`search/${value}`);
+    if (defferedValue?.length) {
+      setSearchValue(defferedValue);
+      navigate(`search/${defferedValue}`);
     }
     setValue("");
   };
@@ -25,7 +28,7 @@ const SearchBar = () => {
           <input
             type="text"
             placeholder="Search"
-            value={value}
+            value={defferedValue}
             onChange={(e) => setValue(e.target.value)}
           />
         </div>

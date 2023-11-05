@@ -1,3 +1,4 @@
+import { viewsFormatter } from "../../utils/formatters";
 import styles from "./styles.module.scss";
 
 const PlayVideo = (props) => {
@@ -23,9 +24,11 @@ const PlayVideo = (props) => {
         </figure>
         <div className={styles.subsInfo}>
           <h6>{selectedVideoData?.snippet?.channelTitle}</h6>
-          <p>197 subscribers</p>
+          <p>{viewsFormatter(selectedVideoData?.statistics?.viewCount)} Views</p>
         </div>
       </div>
+      <p>{selectedVideoData?.snippet?.description}</p>
+
     </div>
   );
 };

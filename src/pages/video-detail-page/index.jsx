@@ -14,6 +14,7 @@ const VideoDetailPage = () => {
   );
 
   const selectedVideoData = data?.items?.[0];
+  console.log(selectedVideoData, 'selectedVideoData')
 
   if (loading) {
     return <p>loading..</p>;
