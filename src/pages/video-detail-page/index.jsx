@@ -1,8 +1,9 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { Suspense, lazy } from "react";
-import styles from "./styles.module.scss";
 import CloseVideosList from "./close-videos-list";
+import styles from "./styles.module.scss";
+import { InitialLoadUi } from "../../components/initial-load-ui-component";
 
 const LazyLoadVideos = lazy(() => import("./video-section"));
 
@@ -14,10 +15,9 @@ const VideoDetailPage = () => {
   );
 
   const selectedVideoData = data?.items?.[0];
-  console.log(selectedVideoData, 'selectedVideoData')
 
   if (loading) {
-    return <p>loading..</p>;
+    return <InitialLoadUi />;
   }
 
   if (error) {

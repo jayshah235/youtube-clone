@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 const CloseVideosList = () => {
   const { name } = useParams();
   const { data } = CustomFetchHook(
-    `search?part=snippet&maxResults=20&q=${name}`,
+    `search?part=snippet&maxResults=10&q=${name}`,
     false
   );
 
@@ -31,6 +31,7 @@ const CloseVideosList = () => {
           }`}
           authorTitle={items?.snippet?.channelTitle}
           videoContentClassName={styles.content}
+          extraClassImage={styles.imageWidth}
         />
       ))}
     </>

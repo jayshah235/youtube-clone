@@ -20,3 +20,9 @@
   background: var(--icons-bg);
   }
 }
+
+@media(max-width: 1000px){
+  .slidersContainer{
+    display: none;
+  }
+}

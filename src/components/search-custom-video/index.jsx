@@ -11,11 +11,12 @@ export const SearchCustomVideo = (props) => {
     link,
     authorTitle,
     description,
-    videoContentClassName
+    videoContentClassName,
+    extraClassImage
   } = props;
   return (
     <Link to={link} className={styles.videoContainer}>
-      <figure className={styles.videoImage}>
+      <figure className={[styles.videoImage, extraClassImage]?.join(' ')}>
         <Image
           loadingSrc={placeholderimage}
           src={videoImage}

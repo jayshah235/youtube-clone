@@ -11,14 +11,11 @@ import { Link } from "react-router-dom";
 import { useGlobalContext } from "../../store/store";
 import { useState } from "react";
 import { Modal } from "../custom-modal";
-import { useAuth0 } from "@auth0/auth0-react";
 import SideBarInfo from "./sidebarInfo";
 import styles from "./styles.module.scss";
 
 const Header = ({ themeMode }) => {
   const { theme } = useGlobalContext();
-  const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
-  const [showSetting, setShowSetting] = useState(false);
   const getTheme = theme === "light-theme";
   const [modal, setModal] = useState(false);
   return (
@@ -59,54 +56,9 @@ const Header = ({ themeMode }) => {
           <IconsConatiner>
             <IoMdNotificationsOutline className="icons" />
           </IconsConatiner>
-          <div
-            className={styles.userInfoContainer}
-            onClick={() => setShowSetting(!showSetting)}
-          >
-            <IconsConatiner>
-              {isAuthenticated ? (
-                <figure className={styles.profilePic}>
-                  <img src={user?.picture ?? ""} alt="" />
-                </figure>
-              ) : (
-                <CgProfile className="icons" />
-              )}
-            </IconsConatiner>
-            {showSetting && (
-              <div className={styles.manageSettingsBox}>
-                {isAuthenticated ? (
-                  <div>
-                    <div className={styles.userInfo}>
-                      <figure className={styles.profilePic}>
-                        <img src={user?.picture ?? ""} alt="profilepic" />
-                      </figure>
-                      <div className={styles.userDetails}>
-                        <h6>{user?.name}</h6>
-                        <h6>{user?.email}</h6>
-                        <p>Manage your Google Account</p>
-                      </div>
-                    </div>
-                    <div className={styles.setModes}>
-                      {getTheme ? (
-                        <MdOutlineDarkMode size="25px" className="icons" />
-                      ) : (
-                        <MdOutlineLightMode size="25px" className="icons" />
-                      )}
-                      <div
-                        className={styles.userDetails}
-                        onClick={() => themeMode()}
-                      >
-                        <p>{getTheme ? "Dark Mode" : "Light Mode"}</p>
-                      </div>
-                    </div>
-                    <button onClick={() => logout()}>Logout</button>
-                  </div>
-                ) : (
-                  <button onClick={() => loginWithRedirect()}>Login</button>
-                )}
-              </div>
-            )}
-          </div>
+          <IconsConatiner>
+            <CgProfile className="icons" />
+          </IconsConatiner>
         </div>
       </header>
     </>
