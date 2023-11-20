@@ -1,3 +1,5 @@
+@import '../../styles/variables.scss';
+
 .detailPageWrapper {
   display: flex;
   gap: 30px;
@@ -69,8 +71,12 @@
 }
 
 .vidDetailedInfo {
-  color: var(--primary-font-color);
   margin-block: 15px;
+  background: var(--secondary-bg-color);
+  padding: 10px;
+  border-radius: 10px;
+  @include font(var(--primary-font-color), 14px, 400);
+  line-height: 1.5;
 }
 
 .imageWidth {

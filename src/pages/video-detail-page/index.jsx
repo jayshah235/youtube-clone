@@ -7,6 +7,8 @@ import { InitialLoadUi } from "../../components/initial-load-ui-component";
 
 const LazyLoadVideos = lazy(() => import("./video-section"));
 
+const LazyLoadCloseVideos = lazy(() => import("./close-videos-list"));
+
 const VideoDetailPage = () => {
   const { ids } = useParams();
   const { data, loading, error } = CustomFetchHook(
@@ -32,6 +34,9 @@ const VideoDetailPage = () => {
         </Suspense>
       </section>
       <section className={styles.playlistWrapper}>
+        <Suspense fallback={<>suspense.....</>}>
+          <LazyLoadCloseVideos />
+        </Suspense>
         <CloseVideosList />
       </section>
     </article>
