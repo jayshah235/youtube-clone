@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import Image from "../image-component";
 import placeholderimage from "../../assets/placeholdersrc.jpg";
 import styles from "./styles.module.scss";
+import { dateFormatter } from "../../utils/formatters";
 
 export const SearchCustomVideo = (props) => {
   const {
@@ -26,7 +27,7 @@ export const SearchCustomVideo = (props) => {
       </figure>
       <div className={[styles.videoContent, videoContentClassName]?.join(' ')}>
         <h3>{title}</h3>
-        <p className={styles.para}>{timePosted}</p>
+        <p className={styles.para}>{dateFormatter(timePosted)}</p>
 
         <div className={styles.videoDesc}>
           {showImage && 

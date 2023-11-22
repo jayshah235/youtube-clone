@@ -1,9 +1,9 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { Suspense, lazy } from "react";
-import CloseVideosList from "./close-videos-list";
-import styles from "./styles.module.scss";
 import { InitialLoadUi } from "../../components/initial-load-ui-component";
+import { SearchedVideosLoader } from "../../loaders/searched-videos-skeleton";
+import styles from "./styles.module.scss";
 
 const LazyLoadVideos = lazy(() => import("./video-section"));
 
@@ -34,10 +34,9 @@ const VideoDetailPage = () => {
         </Suspense>
       </section>
       <section className={styles.playlistWrapper}>
-        <Suspense fallback={<>suspense.....</>}>
+        <Suspense fallback={<SearchedVideosLoader />}>
           <LazyLoadCloseVideos />
         </Suspense>
-        <CloseVideosList />
       </section>
     </article>
   );

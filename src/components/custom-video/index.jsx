@@ -1,17 +1,12 @@
 import { Link } from "react-router-dom";
 import Image from "../image-component";
 import placeholderimage from "../../assets/placeholdersrc.jpg";
+import { dateFormatter } from "../../utils/formatters";
 import styles from "./styles.module.scss";
 
 export const CustomVideo = (props) => {
-  const {
-    videoImage,
-    title,
-    timePosted,
-    totalViews,
-    link,
-    authorTitle,
-  } = props;
+  const { videoImage, title, timePosted, totalViews, link, authorTitle } =
+    props;
 
   return (
     <Link to={link} className={styles.videoContainer}>
@@ -33,12 +28,10 @@ export const CustomVideo = (props) => {
             {title?.length > 58 ? `${title?.substring(0, 58)}...` : title}
           </h3>
           <p>{authorTitle}</p>
-            <div className={styles.videoResultSection}>
-              {totalViews?.length && (
-                <p>{totalViews} Views</p>
-              )}
-              <p>{timePosted}</p>
-            </div>
+          <div className={styles.videoResultSection}>
+            {totalViews?.length && <p>{totalViews} Views</p>}
+            <p>{dateFormatter(timePosted)}</p>
+          </div>
         </div>
       </div>
     </Link>

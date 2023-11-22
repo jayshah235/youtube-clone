@@ -10,3 +10,16 @@ export const viewsFormatter = (num) => {
   }
   return num;
 };
+
+export const dateFormatter = (dates) => {
+  let date = dates;
+  const splitDate = date?.split("-");
+  const yearAndMonth = splitDate?.slice(0, 2).join("/");
+  const getDate = splitDate
+    ?.slice(2)
+    ?.join("")
+    ?.split("")
+    .slice(0, 2)
+    ?.join("");
+  return `${yearAndMonth}/${getDate}`;
+};

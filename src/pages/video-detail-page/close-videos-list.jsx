@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import { CustomFetchHook } from "../../utils/fetchHook";
 import { SearchCustomVideo } from "../../components/search-custom-video";
+import { SearchedVideosLoader } from "../../loaders/searched-videos-skeleton";
 import styles from "./styles.module.scss";
 
 const CloseVideosList = () => {
@@ -14,8 +15,8 @@ const CloseVideosList = () => {
     (s) => s.id.kind === "youtube#video"
   );
 
-  if(loading){
-    return 'loading....'
+  if (loading) {
+    return <SearchedVideosLoader />;
   }
 
   return (
