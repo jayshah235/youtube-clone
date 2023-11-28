@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 
 const CloseVideosList = () => {
   const { name } = useParams();
-  const { data, loading } = CustomFetchHook(
+  const { data, loading, error } = CustomFetchHook(
     `search?part=snippet&maxResults=10&q=${name}`,
     false
   );
@@ -17,6 +17,10 @@ const CloseVideosList = () => {
 
   if (loading) {
     return <SearchedVideosLoader />;
+  }
+
+  if (error) {
+    return error.message;
   }
 
   return (

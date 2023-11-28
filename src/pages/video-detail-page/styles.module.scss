@@ -77,6 +77,7 @@
   border-radius: 10px;
   @include font(var(--primary-font-color), 14px, 400);
   line-height: 1.5;
+  word-wrap: break-word;
 }
 
 .imageWidth {

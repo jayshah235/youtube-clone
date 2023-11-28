@@ -12,20 +12,31 @@ import { useGlobalContext } from "../../store/store";
 import { useState } from "react";
 import { Modal } from "../custom-modal";
 import SideBarInfo from "./sidebarInfo";
+import { IoSearchOutline } from "react-icons/io5";
 import styles from "./styles.module.scss";
 
 const Header = ({ themeMode }) => {
   const { theme } = useGlobalContext();
   const getTheme = theme === "light-theme";
   const [modal, setModal] = useState(false);
+  const [serachModal, setSearchModal] = useState(false);
+
   return (
     <>
       <Modal
         showModal={modal}
         closeModal={() => setModal(false)}
         logo={getTheme ? logo : darkModeLogo}
+        showLogo={true}
       >
         <SideBarInfo closeModal={() => setModal(false)} />
+      </Modal>
+      <Modal
+        showModal={serachModal}
+        closeModal={() => setSearchModal(false)}
+        modalExtraClass={styles.searchModal}
+      >
+        <SearchBar />
       </Modal>
       <header className={styles.headerWrapper}>
         <div className={styles.logoSection}>
@@ -40,7 +51,7 @@ const Header = ({ themeMode }) => {
           </Link>
         </div>
         <div className={styles.searchSection}>
-          <SearchBar />
+          <SearchBar showRecording={true} />
         </div>
         <div className={styles.manageAcountSection}>
           <IconsConatiner onClick={() => themeMode()}>
@@ -53,8 +64,14 @@ const Header = ({ themeMode }) => {
           <IconsConatiner customClass={styles.desktopBtn}>
             <VscDeviceCameraVideo className="icons" />
           </IconsConatiner>
-          <IconsConatiner>
+          <IconsConatiner customClass={styles.desktopBtn}>
             <IoMdNotificationsOutline className="icons" />
+          </IconsConatiner>
+          <IconsConatiner
+            customClass={styles.mobileBtn}
+            onClick={() => setSearchModal(true)}
+          >
+            <IoSearchOutline className="icons" />
           </IconsConatiner>
           <IconsConatiner>
             <CgProfile className="icons" />

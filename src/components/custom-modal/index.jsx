@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useEffect } from "react";
 
 export const Modal = (props) => {
-  const { showModal, closeModal, logo,  children } = props;
+  const { showModal, closeModal, logo, modalExtraClass,  showLogo, children } = props;
 
   useEffect(() => {
     if (showModal) {
@@ -21,7 +21,8 @@ export const Modal = (props) => {
       {showModal && (
         <>
           <div className={styles.modalOverlay} onClick={() => closeModal()} />
-          <div className={styles.modalContainer}>
+          <div className={[styles.modalContainer, modalExtraClass]?.join(' ')}>
+            {showLogo && 
             <div className={styles.logoSection}>
               <IconsConatiner onClick={() => closeModal()}>
                 <RxTextAlignJustify size="30px" className="icons" />
@@ -30,6 +31,7 @@ export const Modal = (props) => {
                 <img src={logo} alt="logo" />
               </Link>
             </div>
+            }
             {children}
           </div>
         </>

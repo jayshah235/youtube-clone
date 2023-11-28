@@ -6,7 +6,7 @@ import styles from "./styles.module.scss";
 import { useNavigate } from "react-router-dom";
 import { useDeferredValue } from "react";
 
-const SearchBar = () => {
+const SearchBar = ({ showRecording }) => {
   const { value, setValue, setSearchValue } = useGlobalContext();
 
   const defferedValue = useDeferredValue(value);
@@ -41,9 +41,11 @@ const SearchBar = () => {
           <GoSearch className="small-icons" />
         </button>
       </form>
-      <IconsConatiner bgActive={true}>
-        <MdKeyboardVoice className="small-icons" />
-      </IconsConatiner>
+      {showRecording && (
+        <IconsConatiner bgActive={true}>
+          <MdKeyboardVoice className="small-icons" />
+        </IconsConatiner>
+      )}
     </div>
   );
 };
