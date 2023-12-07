@@ -1,13 +1,15 @@
+import { useState } from "react";
 import { viewsFormatter } from "../../utils/formatters";
 import styles from "./styles.module.scss";
 
 const PlayVideo = (props) => {
   const { selectedVideoData } = props;
+
+  const [descLength, setDescLength] = useState(500);
   return (
     <div className={styles.videoPlayerContainer}>
       <iframe
         width="100%"
-        // height="450px"
         src={
           selectedVideoData?.id &&
           `https://www.youtube.com/embed/${selectedVideoData?.id}?enablejsapi=1&autoplay=1`
@@ -33,7 +35,24 @@ const PlayVideo = (props) => {
         </div>
       </div>
       <p className={styles.vidDetailedInfo}>
-        {selectedVideoData?.snippet?.description}
+        {selectedVideoData?.snippet?.description?.substring(0, descLength)}{" "}
+        {descLength > 500 ? (
+          <strong
+            onClick={() => setDescLength(500)}
+            style={{ cursor: "pointer" }}
+          >
+            show less....
+          </strong>
+        ) : (
+          <strong
+            onClick={() =>
+              setDescLength(selectedVideoData?.snippet?.description?.length)
+            }
+            style={{ cursor: "pointer" }}
+          >
+           show more....
+          </strong>
+        )}
       </p>
     </div>
   );
