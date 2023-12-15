@@ -44,14 +44,18 @@ const PlayVideo = (props) => {
             show less....
           </strong>
         ) : (
-          <strong
-            onClick={() =>
-              setDescLength(selectedVideoData?.snippet?.description?.length)
-            }
-            style={{ cursor: "pointer" }}
-          >
-           show more....
-          </strong>
+          <>
+            {selectedVideoData?.snippet?.description?.length > 500 && (
+              <strong
+                onClick={() =>
+                  setDescLength(selectedVideoData?.snippet?.description?.length)
+                }
+                style={{ cursor: "pointer" }}
+              >
+                show more....
+              </strong>
+            )}
+          </>
         )}
       </p>
     </div>
