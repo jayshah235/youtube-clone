@@ -25,7 +25,7 @@ export const Modal = (props) => {
             {showLogo && 
             <div className={styles.logoSection}>
               <IconsConatiner onClick={() => closeModal()}>
-                <RxTextAlignJustify size="30px" className="icons" />
+                <RxTextAlignJustify className="large-icons" />
               </IconsConatiner>
               <Link to="/youtube-clone" className={styles.logo}>
                 <img src={logo} alt="logo" />

@@ -4,13 +4,15 @@
   display: flex;
   gap: 15px;
   flex-wrap: wrap;
+  margin-bottom: 15px;
 }
 .vidWidth {
   flex-basis: 24%;
   flex-grow: 1;
 }
 .videosList {
-  @include skeleton(100%, 159px);
+  @include skeleton(100%, inherit);
+  aspect-ratio: 1.8;
 }
 
 .videosInfo {

@@ -6,7 +6,8 @@
   margin-block: 15px;
 }
 .videosList {
-  @include skeleton(360px, 200px);
+  @include skeleton(360px, inherit);
+  aspect-ratio: 1.8;
 }
 
 .contentSize {
@@ -47,6 +48,6 @@
     flex-direction: column;
   }
   .videosList {
-    @include skeleton(100%, 250px);
+    @include skeleton(100%, inherit);
   }
 }
